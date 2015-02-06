@@ -4,7 +4,7 @@
 
 void normal_t::init(scalar_t mu, scalar_t sigma) {
 	_is_y_valid = 0;
-	_y = 0;
+	_y = 0.0;
 	_mu = mu;
 	_sigma = sigma;
 	_unif.init_rightopen(0, 1);

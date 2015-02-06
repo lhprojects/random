@@ -15,7 +15,7 @@ int main() {
 
 	uniform_int_t ui;
 	ui.init(0,10);
-	int c[5] = { };
+	int c[5] = {0};
 	for(int i=0; i <1000000;++i) {
 		switch (ui.next())
 		{
@@ -31,7 +31,7 @@ int main() {
 	for(int i = 0; i < 5;++i) printf("%d\n", c[i]);
     
 
-
+	return 0;
 }
 
 
