@@ -1,12 +1,4 @@
 HOW TO USE
 
-METHOD 1
-Add source files to your project except those with a prefix `test_'.
-METHOD 2
-Use it as library.
-(This is not a big project, you can use it the way you like.)
+    This is a header-only project
 
-HOW TO CONFIGURE
-
-Define the global macro `scalar_t' and `RANDOM_BASIC_SCALAR_FUNCTION', If they not defined, `double' will be used for `scalar_t' and <cmath> for RANDOM_BASIC_SCALAR_FUNCTION.
-`random.sln' is an example for `double', and `qdrandom.sln' is an example for `qd_real'.
