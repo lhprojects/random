@@ -1,7 +1,7 @@
 #include "Mt_19937.h"
 #include <string.h>
 
-void Mt_19937_t::init(uint32_t seed) {
+void Mt_19937::Init(uint32_t seed) {
 	_Mtstates[0] = seed;
 	for(int i = 1; i < 624; ++i) {
 		_Mtstates[i] = uint32_t(0x6c078965)*(
@@ -10,7 +10,7 @@ void Mt_19937_t::init(uint32_t seed) {
 	_index = 0;
 }
 
-uint32_t Mt_19937_t::next() {
+uint32_t Mt_19937::Next() {
 
 	if(_index == 0) {
 		for(int i = 0; i < 624; ++i) {
@@ -36,4 +36,4 @@ uint32_t Mt_19937_t::next() {
 	return y;
 }
 
-Mt_19937_t mt_global;
+Mt_19937 Mt_19937_global;
