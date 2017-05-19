@@ -63,29 +63,44 @@ void testCorrelation(T const &rnd) {
 }
 
 
-int main() {
-	int n =10000000;
-	int t = 0;
-	printf("samples: %d\n", n);
+template<class T>
+void testPi(T const &rnd) {
 
-	Random<double> rd;
-	for(int i = 0; i < n; ++i) {
-		double x = rd.Uniform();
-		double y = rd.Uniform();
-		if(x*x+y*y < 1) {
+	int t = 0;
+	int n = 10000000;
+	double ir2 = 0.50*0.50;
+	double or2 = 0.60*0.60;
+
+	for (int i = 0; i < n; ++i) {
+		double x = rnd();
+		double y = rnd();
+		if (x*x + y*y < or2 && x*x + y*y >= ir2) {
 			++t;
 		}
-		if(i%(n/100)==0 && i != 0) {
-			printf("Pi: %f\n", 4.0*t/i);
+		if (i % (n / 100) == 0 && i != 0) {
+			printf("Pi: %f\n", 4.0*t / i);
 		}
 	}
-	printf("Pi: %f\n", 4.0*t/n);
+	printf("Pi: %f\n", 4.0*t / n);
 
+}
+
+
+int main() {
+
+	Random<double> rnd;
 	srand(0);
-	//testUnifom([&]() { return rd.Uniform(); });
-	//testUnifom([](){ return (rand() % RAND_MAX + 0.5) / RAND_MAX; });
-	testCorrelation([&]() { return rd.Uniform(); });
+	unsigned count = 0;
+
+	testPi([&]() { return rnd.Uniform(); });
+
+	testUnifom([&]() { return rnd.Uniform(); });
+	testUnifom([](){ return (rand() % RAND_MAX + 0.5) / RAND_MAX; });
+	testUnifom([&]() { return ((count += 111) % RAND_MAX + 0.5) / RAND_MAX; });
+
+	testCorrelation([&]() { return rnd.Uniform(); });
 	testCorrelation([&]() { return (rand() % RAND_MAX + 0.5) / RAND_MAX; });
+	testCorrelation([&]() { return ((count += 111) % RAND_MAX + 0.5) / RAND_MAX; });
 
 	return 0;
 }
