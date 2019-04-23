@@ -1,4 +1,4 @@
-#include "../../src/Random.h"
+#include "../../include/Random.h"
 #include <stdio.h>
 #include <math.h>
 #include <stdlib.h>
@@ -77,11 +77,11 @@ void testPi(T const &rnd) {
 		if (x*x + y*y < or2 && x*x + y*y >= ir2) {
 			++t;
 		}
-		if (i % (n / 100) == 0 && i != 0) {
-			printf("Pi: %f\n", 4.0*t / i);
+		if (i % (n / 10) == 0 && i != 0) {
+			printf("Pi(%d/%d): %f\n", t, i, 4.0*t / (i*(or2 - ir2)));
 		}
 	}
-	printf("Pi: %f\n", 4.0*t / n);
+	printf("Final Pi: %f\n", 4.0*t / (n*(or2 - ir2)));
 
 }
 

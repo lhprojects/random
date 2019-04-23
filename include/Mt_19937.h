@@ -13,7 +13,9 @@ private:
 	uint32_t _Mtstates[624];
 };
 
-extern Mt_19937 Mt_19937_global;
+Mt_19937 &Global_Mt_19937();
+
+#include"Mt_19937.inl.h"
 
 
 #endif

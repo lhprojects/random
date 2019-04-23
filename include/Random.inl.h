@@ -1,5 +1,4 @@
-
-#include "Random.h"
+//must be include in "Random.h"
 
 template<class Scalar>
 Random<Scalar>::Random(Mt_19937 *backend) {

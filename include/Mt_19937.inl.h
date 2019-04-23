@@ -1,5 +1,4 @@
-#include "Mt_19937.h"
-#include <string.h>
+//must be included in "Mt_19937.h"
 
 void Mt_19937::Init(uint32_t seed) {
 	_Mtstates[0] = seed;
@@ -36,4 +35,7 @@ uint32_t Mt_19937::Next() {
 	return y;
 }
 
-Mt_19937 Mt_19937_global;
+inline Mt_19937 &Global_Mt_19937() {
+	static Mt_19937 mt_19937;
+	return mt_19937;
+}

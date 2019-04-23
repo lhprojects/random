@@ -2,13 +2,12 @@
 #define RANDOM_H
 
 #include "Mt_19937.h"
-#include"Mt_19937.inl.h"
 
 template<class Scalar>
 class Random
 {
 public:
-	Random(Mt_19937 * backend = &Mt_19937_global);
+	Random(Mt_19937 * backend = &Global_Mt_19937());
 	uint32_t RandomUInt32();
 	uint64_t RandomUInt64();
 	int32_t RandomInt32();

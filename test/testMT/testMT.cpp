@@ -1,6 +1,4 @@
-
-
-#include "../../src/Random.h"
+#include "../../include/Random.h"
 #include <stdio.h>
 #include <random>
 
